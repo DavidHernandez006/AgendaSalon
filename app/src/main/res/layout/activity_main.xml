@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Pantalla única de la app (capa de presentación).
+    El ScrollView evita que botones o campos queden ocultos cuando aparece el teclado.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/raiz"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:clipToPadding="false"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/accent"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subtitulo"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <!-- ========== TARJETA 1: FORMULARIO ========== -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/stroke"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/Etiqueta"
+                    android:layout_marginTop="0dp"
+                    android:text="@string/seccion_cliente" />
+
+                <EditText
+                    android:id="@+id/etNombre"
+                    style="@style/Campo"
+                    android:hint="@string/hint_nombre"
+                    android:inputType="textPersonName|textCapWords" />
+
+                <EditText
+                    android:id="@+id/etCedula"
+                    style="@style/Campo"
+                    android:hint="@string/hint_cedula"
+                    android:inputType="number"
+                    android:maxLength="10" />
+
+                <EditText
+                    android:id="@+id/etTelefono"
+                    style="@style/Campo"
+                    android:hint="@string/hint_telefono"
+                    android:inputType="phone"
+                    android:maxLength="10" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/etFecha"
+                        style="@style/Campo"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="6dp"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:hint="@string/hint_fecha"
+                        android:inputType="none" />
+
+                    <EditText
+                        android:id="@+id/etHora"
+                        style="@style/Campo"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:hint="@string/hint_hora"
+                        android:inputType="none" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Etiqueta"
+                    android:text="@string/seccion_servicio" />
+
+                <RadioGroup
+                    android:id="@+id/rgServicio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/rbCorte"
+                        style="@style/Opcion"
+                        android:text="@string/rb_corte" />
+
+                    <RadioButton
+                        android:id="@+id/rbColor"
+                        style="@style/Opcion"
+                        android:text="@string/rb_color" />
+
+                    <RadioButton
+                        android:id="@+id/rbTratamiento"
+                        style="@style/Opcion"
+                        android:text="@string/rb_tratamiento" />
+                </RadioGroup>
+
+                <TextView
+                    style="@style/Etiqueta"
+                    android:text="@string/seccion_extras" />
+
+                <CheckBox
+                    android:id="@+id/cbLavado"
+                    style="@style/Opcion"
+                    android:text="@string/cb_lavado" />
+
+                <CheckBox
+                    android:id="@+id/cbPeinado"
+                    style="@style/Opcion"
+                    android:text="@string/cb_peinado" />
+
+                <CheckBox
+                    android:id="@+id/cbFrecuente"
+                    style="@style/Opcion"
+                    android:text="@string/cb_frecuente" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnGuardar"
+                        android:layout_width="0dp"
+                        android:layout_height="56dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_guardar"
+                        app:cornerRadius="12dp" />
+
+                    <Button
+                        android:id="@+id/btnLimpiar"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="56dp"
+                        android:text="@string/btn_limpiar"
+                        android:textColor="@color/accent"
+                        app:cornerRadius="12dp"
+                        app:strokeColor="@color/accent" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ========== TARJETA 2: RESUMEN DE LA OPERACIÓN ========== -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/stroke"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/Etiqueta"
+                    android:layout_marginTop="0dp"
+                    android:text="@string/seccion_resumen" />
+
+                <TextView
+                    android:id="@+id/tvResumen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:lineSpacingExtra="3dp"
+                    android:text="@string/resumen_vacio"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ========== TARJETA 3: AGENDA Y TOTALES ========== -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/stroke"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/Etiqueta"
+                    android:layout_marginTop="0dp"
+                    android:text="@string/seccion_agenda" />
+
+                <TextView
+                    android:id="@+id/tvTotales"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:lineSpacingExtra="3dp"
+                    android:textColor="@color/accent"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvLista"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:lineSpacingExtra="4dp"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/btnCancelarUltima"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/btn_cancelar_ultima"
+                    android:textColor="@color/danger"
+                    app:cornerRadius="12dp"
+                    app:strokeColor="@color/danger" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>

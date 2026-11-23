@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">#B388FF</color>
+    <color name="accent_dark">#7C4DFF</color>
+    <color name="bg">#121212</color>
+    <color name="black">#000000</color>
+    <color name="danger">#FF6B6B</color>
+    <color name="input_bg">#2A2A33</color>
+    <color name="stroke">#34343F</color>
+    <color name="surface">#1E1E24</color>
+    <color name="text_primary">#F2F2F5</color>
+    <color name="text_secondary">#A0A0AB</color>
+    <string name="agenda_vacia">No hay citas registradas.</string>
+    <string name="app_name">Agenda Salón</string>
+    <string name="btn_cancelar_ultima">Cancelar última cita</string>
+    <string name="btn_guardar">Calcular y guardar</string>
+    <string name="btn_limpiar">Limpiar</string>
+    <string formatted="false" name="cb_frecuente">Cliente frecuente (10% de descuento)</string>
+    <string name="cb_lavado">Lavado  (+$8.000)</string>
+    <string name="cb_peinado">Peinado  (+$12.000)</string>
+    <string name="hint_cedula">Cédula</string>
+    <string name="hint_fecha">Fecha</string>
+    <string name="hint_hora">Hora</string>
+    <string name="hint_nombre">Nombre del cliente</string>
+    <string name="hint_telefono">Teléfono (10 dígitos)</string>
+    <string name="msg_campos_limpios">Formulario listo para una nueva cita</string>
+    <string name="msg_campos_vacios">Completa todos los campos antes de guardar</string>
+    <string name="msg_cita_cancelada">Última cita cancelada</string>
+    <string name="msg_cita_guardada">Cita guardada correctamente</string>
+    <string name="msg_horario_ocupado">Ya existe una cita en esa fecha y hora</string>
+    <string name="msg_sin_servicio">Selecciona un tipo de servicio</string>
+    <string name="rb_color">Color  ·  $80.000 (incluye insumos)</string>
+    <string name="rb_corte">Corte  ·  $25.000</string>
+    <string name="rb_tratamiento">Tratamiento  ·  $55.000 (lavado incluido)</string>
+    <string name="resumen_vacio">Aún no has procesado ninguna cita.</string>
+    <string name="seccion_agenda">Agenda</string>
+    <string name="seccion_cliente">Datos del cliente</string>
+    <string name="seccion_extras">Adicionales</string>
+    <string name="seccion_resumen">Resumen de la cita</string>
+    <string name="seccion_servicio">Tipo de servicio</string>
+    <string name="subtitulo">Gestión de citas para tu peluquería</string>
+    <style name="Campo">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:background">@drawable/bg_input</item>
+        <item name="android:padding">14dp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textColorHint">@color/text_secondary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:importantForAutofill">no</item>
+    </style>
+    <style name="Etiqueta">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:textColor">@color/accent</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Opcion">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="Theme.AgendaSalon" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/accent</item>
+        <item name="colorPrimaryVariant">@color/accent_dark</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="android:statusBarColor">@color/bg</item>
+        <item name="android:navigationBarColor">@color/bg</item>
+    </style>
+</resources>

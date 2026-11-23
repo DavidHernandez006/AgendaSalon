@@ -1,0 +1,21 @@
+AGENDA SALON - Momento 3 (Android Studio, Java)
+Autor: David
+Tema: gestion de citas para cualquier peluqueria.
+
+COMO ABRIRLO
+1. Android Studio -> File -> Open -> selecciona la carpeta AgendaSalon.
+2. Espera el "Gradle Sync" y ejecuta en emulador o celular.
+3. APK: Build -> Build Bundle(s) / APK(s) -> Build APK(s).
+
+ARQUITECTURA (2 capas)
+- Presentacion: res/layout/activity_main.xml + MainActivity.java
+- Negocio: Cita (abstracta) -> CitaCorte, CitaColor, CitaTratamiento
+           CitaRepositorio (ArrayList<Cita>: crear, listar, eliminar, totales)
+
+REGLAS DE PRECIO
+- Corte: $25.000 | Color: $60.000 + $20.000 insumos | Tratamiento: $55.000 (lavado incluido)
+- Adicionales: Lavado +$8.000, Peinado +$12.000
+- Cliente frecuente: -10% sobre el subtotal
+- No permite dos citas en la misma fecha y hora.
+
+ENTREGA: antes de comprimir, borra las carpetas /build (raiz y /app/build).

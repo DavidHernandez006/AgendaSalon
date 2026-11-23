@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Agenda Salón</string>
+    <string name="subtitulo">Gestión de citas para tu peluquería</string>
+
+    <string name="seccion_cliente">Datos del cliente</string>
+    <string name="hint_nombre">Nombre del cliente</string>
+    <string name="hint_cedula">Cédula</string>
+    <string name="hint_telefono">Teléfono (10 dígitos)</string>
+    <string name="hint_fecha">Fecha</string>
+    <string name="hint_hora">Hora</string>
+
+    <string name="seccion_servicio">Tipo de servicio</string>
+    <string name="rb_corte">Corte  ·  $25.000</string>
+    <string name="rb_color">Color  ·  $80.000 (incluye insumos)</string>
+    <string name="rb_tratamiento">Tratamiento  ·  $55.000 (lavado incluido)</string>
+
+    <string name="seccion_extras">Adicionales</string>
+    <string name="cb_lavado">Lavado  (+$8.000)</string>
+    <string name="cb_peinado">Peinado  (+$12.000)</string>
+    <string name="cb_frecuente" formatted="false">Cliente frecuente (10% de descuento)</string>
+
+    <string name="btn_guardar">Calcular y guardar</string>
+    <string name="btn_limpiar">Limpiar</string>
+    <string name="btn_cancelar_ultima">Cancelar última cita</string>
+
+    <string name="seccion_resumen">Resumen de la cita</string>
+    <string name="resumen_vacio">Aún no has procesado ninguna cita.</string>
+    <string name="seccion_agenda">Agenda</string>
+    <string name="agenda_vacia">No hay citas registradas.</string>
+
+    <string name="msg_campos_vacios">Completa todos los campos antes de guardar</string>
+    <string name="msg_sin_servicio">Selecciona un tipo de servicio</string>
+    <string name="msg_horario_ocupado">Ya existe una cita en esa fecha y hora</string>
+    <string name="msg_cita_guardada">Cita guardada correctamente</string>
+    <string name="msg_cita_cancelada">Última cita cancelada</string>
+    <string name="msg_campos_limpios">Formulario listo para una nueva cita</string>
+</resources>
