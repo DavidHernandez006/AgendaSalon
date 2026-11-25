@@ -3,21 +3,17 @@ package com.example.agendasalon;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-/**
- * Autor: David - Momento 3
- *
- * CAPA DE NEGOCIO - Superclase abstracta.
- * Encapsula los datos comunes de cualquier cita de peluquería.
- * Cada tipo de servicio (subclase) calcula su precio de forma diferente.
- */
+ // CAPA DE NEGOCIO - Superclase abstracta.
+
+// clase plantilla general para distintos servicios (agrupar cosas en comun)
 public abstract class Cita {
 
-    // ---------- Constantes del negocio ----------
+    //  Constantes del negocio
     public static final double COSTO_LAVADO = 8000;
     public static final double COSTO_PEINADO = 12000;
     public static final double DESCUENTO_FRECUENTE = 0.10; // 10 %
 
-    // ---------- Atributos privados (encapsulamiento) ----------
+    //  Atributos privados (encapsulamiento)
     private String nombreCliente;
     private String cedula;
     private String telefono;
@@ -27,7 +23,7 @@ public abstract class Cita {
     private boolean peinado;
     private boolean clienteFrecuente;
 
-    /** Constructor: usa los setters para que TODA la validación quede en un solo lugar. */
+    // Constructor: usa los setters para que TODA la validación quede en un solo lugar.
     public Cita(String nombreCliente, String cedula, String telefono, String fecha, String hora,
                 boolean lavado, boolean peinado, boolean clienteFrecuente) {
         setNombreCliente(nombreCliente);
@@ -40,7 +36,7 @@ public abstract class Cita {
         this.clienteFrecuente = clienteFrecuente;
     }
 
-    // ---------- Getters y Setters (con validaciones) ----------
+    // Getters y Setters (con validaciones)
     public String getNombreCliente() {
         return nombreCliente;
     }
@@ -120,9 +116,9 @@ public abstract class Cita {
         this.clienteFrecuente = clienteFrecuente;
     }
 
-    // ---------- Lógica común ----------
+    //  Lógica común
 
-    /** Suma los servicios adicionales marcados. Las subclases pueden sobreescribirlo. */
+    // Suma los servicios adicionales marcados. Las subclases pueden sobreescribirlo.
     protected double calcularExtras() {
         double total = 0;
         if (lavado) total += COSTO_LAVADO;
@@ -130,23 +126,23 @@ public abstract class Cita {
         return total;
     }
 
-    /** Aplica el 10 % de descuento si el cliente es frecuente. */
+    // Aplica el 10 % de descuento si el cliente es frecuente.
     protected double aplicarDescuentoFrecuente(double subtotal) {
         return clienteFrecuente ? subtotal * (1 - DESCUENTO_FRECUENTE) : subtotal;
     }
 
-    // ---------- Métodos abstractos: cada subclase los sobreescribe (@Override) ----------
+    //  Métodos abstractos: cada subclase los sobreescribe (@Override)
 
-    /** Precio final de la cita. */
+    // Precio final de la cita.
     public abstract double calcularPrecio();
 
-    /** Nombre del servicio (Corte, Color, Tratamiento). */
+    // Nombre del servicio (Corte, Color, Tratamiento).
     public abstract String getTipoServicio();
 
-    /** Texto corto que explica cómo se compone el precio de ese servicio. */
+    // Texto corto que explica cómo se compone el precio de ese servicio.
     public abstract String getDetalle();
 
-    /** Ficha con el resumen de la cita, lista para mostrar en pantalla. */
+    // Ficha con el resumen de la cita, lista para mostrar en pantalla.
     public String generarResumen() {
         StringBuilder sb = new StringBuilder();
         sb.append("Cliente: ").append(nombreCliente).append("\n");

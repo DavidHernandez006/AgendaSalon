@@ -20,23 +20,17 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
-/**
- * Autor: David - Momento 3
- *
- * CAPA DE PRESENTACIÓN: conecta el XML (activity_main.xml) con las clases de negocio.
- * Flujo de datos:  EditText/RadioGroup/CheckBox -> validaciones -> new CitaXxx(...)
- *                  -> CitaRepositorio.agregar() -> TextView (resumen, agenda y totales).
- */
+// David - Momento 3
 public class MainActivity extends AppCompatActivity {
 
-    // ---------- Vistas ----------
+    // Vistas : variables para xml
     private EditText etNombre, etCedula, etTelefono, etFecha, etHora;
     private RadioGroup rgServicio;
     private CheckBox cbLavado, cbPeinado, cbFrecuente;
     private Button btnGuardar, btnLimpiar, btnCancelarUltima;
     private TextView tvResumen, tvTotales, tvLista;
 
-    // ---------- Capa de negocio ----------
+    // Capa de negocio :acceso a las citas, guardarlas, listar y consular
     private final CitaRepositorio repositorio = CitaRepositorio.getInstancia();
 
     // Ciclo de vida: onCreate se ejecuta al abrir la pantalla (y al rotarla).
@@ -52,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         actualizarAgenda();
     }
 
-    /** Evita que el contenido quede debajo de la barra de estado o del teclado. */
+    // ajuste de margenes
     private void ajustarMargenesDelSistema() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.raiz), (v, insets) -> {
             Insets b = insets.getInsets(
@@ -62,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    /** Une cada variable Java con su componente del XML mediante findViewById. */
+    // busqueda de variables
     private void enlazarVistas() {
         etNombre = findViewById(R.id.etNombre);
         etCedula = findViewById(R.id.etCedula);
@@ -81,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         tvLista = findViewById(R.id.tvLista);
     }
 
-    /** Eventos de clic (listeners). */
+    // Eventos de clic (listeners)
     private void configurarEventos() {
         etFecha.setOnClickListener(v -> mostrarSelectorFecha());
         etHora.setOnClickListener(v -> mostrarSelectorHora());
@@ -99,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // ---------- Selectores de fecha y hora ----------
+    //  Selectores de fecha y hora
     private void mostrarSelectorFecha() {
         Calendar hoy = Calendar.getInstance();
         DatePickerDialog dialogo = new DatePickerDialog(this,
@@ -116,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 9, 0, true).show();
     }
 
-    // ---------- Acción principal: validar, calcular y guardar ----------
+    // Acción principal: validar, calcular y guardar ----------
     private void procesarCita() {
         String nombre = etNombre.getText().toString().trim();
         String cedula = etCedula.getText().toString().trim();
@@ -170,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /** Refresca la lista de citas y los totales a partir del repositorio. */
+    // Refresca la lista de citas y los totales a partir del repositorio.
     private void actualizarAgenda() {
         ArrayList<Cita> citas = repositorio.listar();
 
@@ -197,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
         btnCancelarUltima.setEnabled(true);
     }
 
-    /** Deja el formulario listo para registrar una nueva cita. */
+    // Deja el formulario listo para registrar una nueva cita.
     private void limpiarCampos() {
         etNombre.setText("");
         etCedula.setText("");
